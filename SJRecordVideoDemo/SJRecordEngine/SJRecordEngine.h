@@ -34,6 +34,8 @@
  */
 - (AVCaptureVideoPreviewLayer *)previewLayer;
 
+- (void)setCaptureWithWidth:(int)width AndHeight:(int)height;
+
 /**
  启动录制功能
  */

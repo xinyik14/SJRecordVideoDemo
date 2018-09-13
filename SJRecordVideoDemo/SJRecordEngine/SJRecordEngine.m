@@ -81,6 +81,40 @@
 /**
  启动录制功能
  */
+
+//Kathy test
+- (void)setCaptureWithWidth:(int)width AndHeight:(int)height {
+    
+    //    dispatch_async(_captureQueue, ^{
+    FourCharCode requiredSubType = kCVPixelFormatType_420YpCbCr8BiPlanarFullRange; // iOS uses '420v'
+    AVCaptureDeviceFormat *selectedFormat = nil;
+    for ( AVCaptureDeviceFormat *format in [[self backCamera] formats]) {
+        // skip pixel formats that do not match
+        FourCharCode mediaSubType = CMFormatDescriptionGetMediaSubType(format.formatDescription);
+        if (mediaSubType != requiredSubType) {
+            continue;
+        }
+        
+        // pick similar size
+        CMVideoDimensions dimensions = CMVideoFormatDescriptionGetDimensions(format.formatDescription);
+        if (((int)dimensions.width == width) && ((int)dimensions.height == height)) {
+            selectedFormat = format;
+            break;
+        }
+    }
+    
+    [_recordSession beginConfiguration];
+    if ([[self backCamera] lockForConfiguration:NULL] && selectedFormat) {
+        [[self backCamera] setActiveFormat: selectedFormat];
+        [[self backCamera] unlockForConfiguration];
+    }
+    [_recordSession commitConfiguration];
+    
+    //    });
+    
+}
+
+
 - (void)startUp {
 //    NSLog(@"启动录制功能");
     self.startTime = CMTimeMake(0, 0);
@@ -88,6 +122,8 @@
     self.isPaused = NO;
     self.discont = NO;
     [self.recordSession startRunning];
+    //Kathy test
+    [self setCaptureWithWidth:352 AndHeight:288];
 }
 
 /**
@@ -116,6 +152,8 @@
             self.discont = NO;
             _timeOffset = CMTimeMake(0, 0);
             self.isCapturing = YES;
+            //Kathy test
+            [self setCaptureWithWidth:640 AndHeight:480];
         }
     }
 }
@@ -129,6 +167,8 @@
 //            NSLog(@"暂停录制");
             self.isPaused = YES;
             self.discont = YES;
+            //Kathy test
+            [self setCaptureWithWidth:352 AndHeight:288];
         }
     }
 }
@@ -141,6 +181,8 @@
         if (self.isPaused) {
 //            NSLog(@"继续录制");
             self.isPaused = NO;
+            //Kathy test
+            [self setCaptureWithWidth:640 AndHeight:480];
         }
     }
 }

@@ -304,7 +304,7 @@
 				TargetAttributes = {
 					B2402BF31EF7D7BC009751D4 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 99B27783N7;
+						DevelopmentTeam = 57T9237FN3;
 						ProvisioningStyle = Automatic;
 					};
 					B2402C0C1EF7D7BC009751D4 = {
@@ -545,7 +545,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 99B27783N7;
+				DEVELOPMENT_TEAM = 57T9237FN3;
 				INFOPLIST_FILE = SJRecordVideoDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -558,7 +558,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 99B27783N7;
+				DEVELOPMENT_TEAM = 57T9237FN3;
 				INFOPLIST_FILE = SJRecordVideoDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
